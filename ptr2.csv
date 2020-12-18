@@ -1,0 +1,21 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+11,NET-GDCB-AMOUNT,84 - 97,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,84,97,ptr
+12,NET-GDCA-AMOUNT,98 - 111,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,98,111,ptr
+13,NET-TOTAL-GROSS-DRUG-COST,112 - 125,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",112,125,ptr
+14,NET-PATIENT-PAY-AMOUNT,126 - 139,S9(12)V99,14,Self-explanatory,126,139,ptr
+15,NET-OTHER-TROOP-AMOUNT,140 - 153,S9(12)V99,14,Net Other True Out-of-Pocket Amount,140,153,ptr
+16,NET-LICS-AMOUNT,154 - 167,S9(12)V99,14,Net Low Income Cost Sharing Amount,154,167,ptr
+17,NET-TrOOP-AMOUNT,168 - 181,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",168,181,ptr
+18,NET-PLRO-AMOUNT,182 - 195,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,182,195,ptr
+19,NET-CPP-AMOUNT,196 - 209,S9(12)V99,14,Net Covered Plan Paid Amount,196,209,ptr
+20,NET-NPP-AMOUNT,210 - 223,S9(12)V99,14,Net Non-covered Plan Paid Amount,210,223,ptr
+21,NUMBER-OF-ORIGINAL-PDES,224 - 235,9(12),12,The count of original PDEs.,224,235,ptr
+22,NUMBER-OF-ADJUSTED-PDES,236 - 247,9(12),12,The count of adjusted PDEs.,236,247,ptr
+23,NUMBER-OF-DELETION-PDES,248 - 259,9(12),12,The count of deleted PDEs.,248,259,ptr
+24,NET-NUMBER-OF-CATASTROPHIC-COVERAGE-PDES,260 - 271,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “C”.,260,271,ptr
+25,NET-NUMBER-OF-ATTACHMENT-PDES,272 - 283,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “A”,272,283,ptr
+26,NET-NUMBER-OF-NON-CATASTROPHIC-PDES,284 - 295,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “blank”.,284,295,ptr
+27,NET-NUMBER-OF-NON-STANDARD-FORMAT-PDES,296 - 307,9(12),12,Count of PDEs with Non-standard Format Code other then blank,296,307,ptr
+28,NET-NUMBER-OF-OON-PDES,308 - 319,9(12),12,Count of PDEs with Pricing Exception Code equal “O”,308,319,ptr
+29,FILLER,320 - 331,X(12),12,SPACES,320,331,ptr
+30,DET-RECORD-TOTAL,332 - 339,9(8),8,Total count of DET records,332,339,ptr

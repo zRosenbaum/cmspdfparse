@@ -1,0 +1,21 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+1,RECORD-ID,1 - 3,X(3),3,"""CTR""",1,3,ctr
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,ctr
+3,CONTRACT-NO,11 - 15,X(5),5,Must match CHD,11,15,ctr
+4,DRUG-COVERAGE-STATUS-CODE,16 - 16,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",16,16,ctr
+5,BENEFICIARY-COUNT,17 - 27,9(11),11,Total count of DET records.,17,27,ctr
+6,FILLER,28 - 36,X(9),9,SPACES,28,36,ctr
+7,RX-COUNT,37 - 47,9(11),11,"Number of Prescriptions net of deleted and/or adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",37,47,ctr
+8,NET-INGRED-COST,48 - 61,S9(12)V99,14,Self-explanatory,48,61,ctr
+9,NET-DISPENS-FEE,62 - 75,S9(12)V99,14,Self-explanatory,62,75,ctr
+10,NET-SALES-TAX,76 - 89,S9(12)V99,14,Self-explanatory,76,89,ctr
+11,NET-GDCB-AMOUNT,90 - 103,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,90,103,ctr
+12,NET-GDCA-AMOUNT,104 - 117,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,104,117,ctr
+13,NET-TOTAL-GROSS-DRUG-COST,118 - 131,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",118,131,ctr
+14,NET-PATIENT-PAY-AMOUNT,132 - 145,S9(12)V99,14,Self-explanatory,132,145,ctr
+15,NET-OTHER-TROOP-AMOUNT,146 - 159,S9(12)V99,14,Net Other True Out-of-Pocket Amount,146,159,ctr
+16,NET-LICS-AMOUNT,160 - 173,S9(12)V99,14,Net Low Income Cost Sharing Amount,160,173,ctr
+17,NET-TrOOP-AMOUNT,174 - 187,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",174,187,ctr
+18,NET-PLRO-AMOUNT,188 - 201,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,188,201,ctr
+19,NET-CPP-AMOUNT,202 - 215,S9(12)V99,14,Net Covered Plan Paid Amount,202,215,ctr
+20,NET-NPP-AMOUNT,216 - 229,S9(12)V99,14,Net Non-covered Plan Paid Amount,216,229,ctr

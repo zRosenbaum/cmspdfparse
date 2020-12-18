@@ -1,0 +1,13 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+21,NUMBER-OF-ORIGINAL-PDES,230 - 241,9(12),12,The count of original PDEs.,230,241,ctr
+22,NUMBER-OF-ADJUSTED-PDES,242 - 253,9(12),12,The count of adjusted PDEs.,242,253,ctr
+23,NUMBER-OF-DELETION-PDES,254 - 265,9(12),12,The count of deleted PDEs.,254,265,ctr
+24,NET-NUMBER-CATASTROPHIC-PDES,266 - 277,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “C”,266,277,ctr
+25,NET-NUMBER-ATTACHMENT-PDES,278 - 289,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “A”,278,289,ctr
+26,NET-NUMBER-NON-CATASTROPHIC-PDES,290 - 301,9(12),12,Count of PDEs with Catastrophic Coverage Code not equal “A” or “C”,290,301,ctr
+27,NET-NUMBER-NON-STANDARD-FORMAT-PDES,302 - 313,9(12),12,Count of PDEs with Non-standard Format Code other than blank,302,313,ctr
+28,NET-NUMBER-OON-PDES,314 - 325,9(12),12,Count of PDEs with Pricing Exception Code equal “O” (out-of-network).,314,325,ctr
+29,FILLER,326 - 337,X(12),12,SPACES,326,337,ctr
+30,DET-RECORD-TOTAL,338 - 345,9(8),8,Total count of DET records,338,345,ctr
+31,P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,346 - 359,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting Contract.  This field is the sum of the LICS Amount and CPP Amount.  Value is zero in Reports 40ENH and 40OTC",346,359,ctr
+32,FILLER,360 - 512,X(153),153,SPACES,360,512,ctr

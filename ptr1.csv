@@ -1,0 +1,11 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+1,RECORD-ID,1 - 3,X(3),3,"""PTR""",1,3,ptr
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,ptr
+3,CONTRACT-NO,11 - 15,X(5),5,Same as PHD,11,15,ptr
+4,PBP-ID,16 - 18,X(3),3,Same as PHD,16,18,ptr
+5,DRUG-COVERAGE-STATUS-CODE,19 - 19,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",19,19,ptr
+6,BENEFICIARY-COUNT,20 - 30,9(11),11,Total count of DET records.,20,30,ptr
+7,RX-COUNT,31 - 41,9(11),11,"Number of Prescriptions net of deleted and/or adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",31,41,ptr
+8,NET-INGRED-COST,42 - 55,S9(12)V99,14,Self-explanatory,42,55,ptr
+9,NET-DISPENS-FEE,56 - 69,S9(12)V99,14,Self-explanatory,56,69,ptr
+10,NET-SALES-TAX,70 - 83,S9(12)V99,14,Self-explanatory,70,83,ptr

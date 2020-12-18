@@ -1,0 +1,25 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+1,RECORD-ID,1 - 3,X(3),3,DET,1,3,det
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,det
+3,DRUG-COVERAGE-STATUS-CODE,11 - 11,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",11,11,det
+4,CURRENT-CMS-HICN,12 - 31,X(20),20,"Medicare HIC or RRB number.  If the beneficiary has more than one HICN on file, this is current HICN.",12,31,det
+5,LAST-SUBMITTED-HICN,32 - 51,X(20),20,HICN from the most recent accepted PDE in the DDPS database for that plan/beneficiary.,32,51,det
+6,LAST-SUBMITTED-CARDHOLDER-ID,52 - 71,X(20),20,"Plan identification of the enrollee, as reported on the most recent PDE for the benefit year.",52,71,det
+7,EARLIEST-PDE-ATTACHMENT-POINT-DATE,72 - 79,9(8),8,Date of service from the earliest attachment point PDE associated with the PBP - CCYYMMDD,72,79,det
+8,RX-COUNT,80 - 90,9(11),11,"Number of Prescriptions net of deleted and adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",80,90,det
+9,NET-INGRED-COST,91 - 104,S9(12)V99,14,Self-explanatory,91,104,det
+10,NET-DISPENS-FEE,105 - 118,S9(12)V99,14,Self-explanatory,105,118,det
+11,NET-SALES-TAX,119 - 132,S9(12)V99,14,Self-explanatory,119,132,det
+12,NET-GDCB-AMOUNT,133 - 146,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,133,146,det
+13,NET-GDCA-AMOUNT,147 - 160,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,147,160,det
+14,NET-TOTAL-GROSS-DRUG-COST,161 - 174,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",161,174,det
+15,NET-PATIENT-PAY-AMOUNT,175 - 188,S9(12)V99,14,Self-explanatory,175,188,det
+16,NET-OTHER-TROOP-AMOUNT,189 - 202,S9(12)V99,14,Net Other True Out-of-Pocket Amount,189,202,det
+17,NET-LICS-AMOUNT,203 - 216,S9(12)V99,14,Net Low Income Cost Sharing Amount,203,216,det
+18,NET-TrOOP-AMOUNT,217 - 230,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",217,230,det
+19,NET-PLRO-AMOUNT,231 - 244,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,231,244,det
+20,NET-CPP-AMOUNT,245 - 258,S9(12)V99,14,Net Covered Plan Paid Amount,245,258,det
+21,NET-NPP-AMOUNT,259 - 272,S9(12)V99,14,Net Non-covered Plan Paid Amount,259,272,det
+22,NUMBER-OF-ORIGINAL-PDES,273 - 284,9(12),12,Self-explanatory,273,284,det
+23,NUMBER-OF-ADJUSTED-PDES,285 - 296,9(12),12,Self-explanatory,285,296,det
+24,NUMBER-OF-DELETION-PDES,297 - 308,9(12),12,Self-explanatory,297,308,det

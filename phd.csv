@@ -1,0 +1,13 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+1,RECORD-ID,1 - 3,X(3),3,"""PHD""",1,3,phd
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,phd
+3,CONTRACT-NO,11 - 15,X(5),5,Submitting Contract number,11,15,phd
+4,PBP-ID,16 - 18,X(3),3,Submitting PBP ID,16,18,phd
+5,FILE-ID,19 - 34,X(16),16,"40COVCCYY###, 40ENHCCYY### or 40OTCCCYY###  (Where  40 = Due from Contracts of Record - YTD Report COV / ENH / OTC indicates the drug coverage status being reported on    CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.)",19,34,phd
+6,PROD-TEST-IND,35 - 38,X(4),4,TEST or PROD,35,38,phd
+7,AS-OF-YEAR,39 - 42,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",39,42,phd
+8,AS-OF-MONTH,43 - 44,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",43,44,phd
+9,DDPS-SYSTEM-DATE,45 - 52,X(8),8,‘CCYYMMDD’ = DDPS File creation date.,45,52,phd
+10,DDPS-SYSTEM-TIME,53 - 58,X(6),6,‘HHMMSS’ = DDPS File creation time.,53,58,phd
+11,DDPS-REPORT-ID,59 - 63,X(5),5,"DDPS Report identifier (Either '40COV', '40ENH' or '40OTC').",59,63,phd
+12,FILLER,64 - 512,X(449),449,SPACES,64,512,phd

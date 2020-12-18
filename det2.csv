@@ -1,0 +1,9 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+25,NET-NUMBER-OF-CATASTROPHIC-COVERAGE-PDES,309 - 320,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “C”,309,320,det
+26,NET-NUMBER-OF-ATTACHMENT-PDES,321 - 332,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “A”,321,332,det
+27,NET-NUMBER-OF-NON-CATASTROPHIC-PDES,333 - 344,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “blank”,333,344,det
+28,NET-NUMBER-OF-NON-STANDARD-FORMAT-PDES,345 - 356,9(12),12,Count of PDEs with Non-standard Format Code other then blank,345,356,det
+29,NET-NUMBER-OF-OON-PDES,357 - 368,9(12),12,Count of PDEs with pricing-exception-code code equal “O”,357,368,det
+30,P2P-CONTRACT,369 - 373,X(5),5,The contract number of the Plan of Record associated with the P2P reconciliation condition.  (Appears on Covered Drug version of the report only.),369,373,det
+31,P2P-AMOUNT,374 - 387,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting PBP for this beneficiary.  This field is the sum of the LICS Amount and CPP Amount. Value is zero in Reports 40ENH and 40OTC.",374,387,det
+32,FILLER,388 - 512,X(125),125,SPACES,388,512,det

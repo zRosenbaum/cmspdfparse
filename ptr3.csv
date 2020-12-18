@@ -1,0 +1,3 @@
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
+31,P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,340 - 353,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contractsof Record to this PBP.  This field is the sum of the LICS Amount and CPP Amount.  Value is zero in Reports 40ENH and 40OTC.",340,353,ptr
+32,FILLER,354 - 512,X(159),159,SPACES,354,512,ptr
