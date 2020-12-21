@@ -1,120 +1,311 @@
-FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD
-1,RECORD-ID,1 - 3,X(3),3,"""CHD""",1,3,chd
-2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,chd
-3,CONTRACT-NO,11 - 15,X(5),5,Submitting Contract number,11,15,chd
-4,FILE-ID,16 - 31,X(16),16,"40COVCCYY###, 40ENHCCYY### or 40OTCCCYY###  (Where  40 = Due from Contracts of Record - YTD Report COV / ENH / OTC indicates the drug coverage status being reported on    CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.)",16,31,chd
-5,PROD-TEST-IND,32 - 35,X(4),4,TEST or PROD,32,35,chd
-6,AS-OF-YEAR,36 - 39,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",36,39,chd
-7,AS-OF-MONTH,40 - 41,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",40,41,chd
-8,DDPS-SYSTEM-DATE,42 - 49,X(8),8,‘CCYYMMDD’ = DDPS File creation date.,42,49,chd
-9,DDPS-SYSTEM-TIME,50 - 55,X(6),6,‘HHMMSS’ = DDPS File creation time.,50,55,chd
-10,DDPS-REPORT-ID,56 - 60,X(5),5,"DDPS Report identifier (Either '40COV', '40ENH' or '40OTC').",56,60,chd
-11,FILLER,61 - 512,X(452),452,SPACES,61,512,chd
-1,RECORD-ID,1 - 3,X(3),3,"""PHD""",1,3,phd
-2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,phd
-3,CONTRACT-NO,11 - 15,X(5),5,Submitting Contract number,11,15,phd
-4,PBP-ID,16 - 18,X(3),3,Submitting PBP ID,16,18,phd
-5,FILE-ID,19 - 34,X(16),16,"40COVCCYY###, 40ENHCCYY### or 40OTCCCYY###  (Where  40 = Due from Contracts of Record - YTD Report COV / ENH / OTC indicates the drug coverage status being reported on    CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.)",19,34,phd
-6,PROD-TEST-IND,35 - 38,X(4),4,TEST or PROD,35,38,phd
-7,AS-OF-YEAR,39 - 42,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",39,42,phd
-8,AS-OF-MONTH,43 - 44,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",43,44,phd
-9,DDPS-SYSTEM-DATE,45 - 52,X(8),8,‘CCYYMMDD’ = DDPS File creation date.,45,52,phd
-10,DDPS-SYSTEM-TIME,53 - 58,X(6),6,‘HHMMSS’ = DDPS File creation time.,53,58,phd
-11,DDPS-REPORT-ID,59 - 63,X(5),5,"DDPS Report identifier (Either '40COV', '40ENH' or '40OTC').",59,63,phd
-12,FILLER,64 - 512,X(449),449,SPACES,64,512,phd
-1,RECORD-ID,1 - 3,X(3),3,DET,1,3,det
-2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,det
-3,DRUG-COVERAGE-STATUS-CODE,11 - 11,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",11,11,det
-4,CURRENT-CMS-HICN,12 - 31,X(20),20,"Medicare HIC or RRB number.  If the beneficiary has more than one HICN on file, this is current HICN.",12,31,det
-5,LAST-SUBMITTED-HICN,32 - 51,X(20),20,HICN from the most recent accepted PDE in the DDPS database for that plan/beneficiary.,32,51,det
-6,LAST-SUBMITTED-CARDHOLDER-ID,52 - 71,X(20),20,"Plan identification of the enrollee, as reported on the most recent PDE for the benefit year.",52,71,det
-7,EARLIEST-PDE-ATTACHMENT-POINT-DATE,72 - 79,9(8),8,Date of service from the earliest attachment point PDE associated with the PBP - CCYYMMDD,72,79,det
-8,RX-COUNT,80 - 90,9(11),11,"Number of Prescriptions net of deleted and adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",80,90,det
-9,NET-INGRED-COST,91 - 104,S9(12)V99,14,Self-explanatory,91,104,det
-10,NET-DISPENS-FEE,105 - 118,S9(12)V99,14,Self-explanatory,105,118,det
-11,NET-SALES-TAX,119 - 132,S9(12)V99,14,Self-explanatory,119,132,det
-12,NET-GDCB-AMOUNT,133 - 146,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,133,146,det
-13,NET-GDCA-AMOUNT,147 - 160,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,147,160,det
-14,NET-TOTAL-GROSS-DRUG-COST,161 - 174,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",161,174,det
-15,NET-PATIENT-PAY-AMOUNT,175 - 188,S9(12)V99,14,Self-explanatory,175,188,det
-16,NET-OTHER-TROOP-AMOUNT,189 - 202,S9(12)V99,14,Net Other True Out-of-Pocket Amount,189,202,det
-17,NET-LICS-AMOUNT,203 - 216,S9(12)V99,14,Net Low Income Cost Sharing Amount,203,216,det
-18,NET-TrOOP-AMOUNT,217 - 230,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",217,230,det
-19,NET-PLRO-AMOUNT,231 - 244,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,231,244,det
-20,NET-CPP-AMOUNT,245 - 258,S9(12)V99,14,Net Covered Plan Paid Amount,245,258,det
-21,NET-NPP-AMOUNT,259 - 272,S9(12)V99,14,Net Non-covered Plan Paid Amount,259,272,det
-22,NUMBER-OF-ORIGINAL-PDES,273 - 284,9(12),12,Self-explanatory,273,284,det
-23,NUMBER-OF-ADJUSTED-PDES,285 - 296,9(12),12,Self-explanatory,285,296,det
-24,NUMBER-OF-DELETION-PDES,297 - 308,9(12),12,Self-explanatory,297,308,det
-25,NET-NUMBER-OF-CATASTROPHIC-COVERAGE-PDES,309 - 320,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “C”,309,320,det
-26,NET-NUMBER-OF-ATTACHMENT-PDES,321 - 332,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “A”,321,332,det
-27,NET-NUMBER-OF-NON-CATASTROPHIC-PDES,333 - 344,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “blank”,333,344,det
-28,NET-NUMBER-OF-NON-STANDARD-FORMAT-PDES,345 - 356,9(12),12,Count of PDEs with Non-standard Format Code other then blank,345,356,det
-29,NET-NUMBER-OF-OON-PDES,357 - 368,9(12),12,Count of PDEs with pricing-exception-code code equal “O”,357,368,det
-30,P2P-CONTRACT,369 - 373,X(5),5,The contract number of the Plan of Record associated with the P2P reconciliation condition.  (Appears on Covered Drug version of the report only.),369,373,det
-31,P2P-AMOUNT,374 - 387,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting PBP for this beneficiary.  This field is the sum of the LICS Amount and CPP Amount. Value is zero in Reports 40ENH and 40OTC.",374,387,det
-32,FILLER,388 - 512,X(125),125,SPACES,388,512,det
-1,RECORD-ID,1 - 3,X(3),3,"""PTR""",1,3,ptr
-2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,ptr
-3,CONTRACT-NO,11 - 15,X(5),5,Same as PHD,11,15,ptr
-4,PBP-ID,16 - 18,X(3),3,Same as PHD,16,18,ptr
-5,DRUG-COVERAGE-STATUS-CODE,19 - 19,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",19,19,ptr
-6,BENEFICIARY-COUNT,20 - 30,9(11),11,Total count of DET records.,20,30,ptr
-7,RX-COUNT,31 - 41,9(11),11,"Number of Prescriptions net of deleted and/or adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",31,41,ptr
-8,NET-INGRED-COST,42 - 55,S9(12)V99,14,Self-explanatory,42,55,ptr
-9,NET-DISPENS-FEE,56 - 69,S9(12)V99,14,Self-explanatory,56,69,ptr
-10,NET-SALES-TAX,70 - 83,S9(12)V99,14,Self-explanatory,70,83,ptr
-11,NET-GDCB-AMOUNT,84 - 97,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,84,97,ptr
-12,NET-GDCA-AMOUNT,98 - 111,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,98,111,ptr
-13,NET-TOTAL-GROSS-DRUG-COST,112 - 125,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",112,125,ptr
-14,NET-PATIENT-PAY-AMOUNT,126 - 139,S9(12)V99,14,Self-explanatory,126,139,ptr
-15,NET-OTHER-TROOP-AMOUNT,140 - 153,S9(12)V99,14,Net Other True Out-of-Pocket Amount,140,153,ptr
-16,NET-LICS-AMOUNT,154 - 167,S9(12)V99,14,Net Low Income Cost Sharing Amount,154,167,ptr
-17,NET-TrOOP-AMOUNT,168 - 181,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",168,181,ptr
-18,NET-PLRO-AMOUNT,182 - 195,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,182,195,ptr
-19,NET-CPP-AMOUNT,196 - 209,S9(12)V99,14,Net Covered Plan Paid Amount,196,209,ptr
-20,NET-NPP-AMOUNT,210 - 223,S9(12)V99,14,Net Non-covered Plan Paid Amount,210,223,ptr
-21,NUMBER-OF-ORIGINAL-PDES,224 - 235,9(12),12,The count of original PDEs.,224,235,ptr
-22,NUMBER-OF-ADJUSTED-PDES,236 - 247,9(12),12,The count of adjusted PDEs.,236,247,ptr
-23,NUMBER-OF-DELETION-PDES,248 - 259,9(12),12,The count of deleted PDEs.,248,259,ptr
-24,NET-NUMBER-OF-CATASTROPHIC-COVERAGE-PDES,260 - 271,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “C”.,260,271,ptr
-25,NET-NUMBER-OF-ATTACHMENT-PDES,272 - 283,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “A”,272,283,ptr
-26,NET-NUMBER-OF-NON-CATASTROPHIC-PDES,284 - 295,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “blank”.,284,295,ptr
-27,NET-NUMBER-OF-NON-STANDARD-FORMAT-PDES,296 - 307,9(12),12,Count of PDEs with Non-standard Format Code other then blank,296,307,ptr
-28,NET-NUMBER-OF-OON-PDES,308 - 319,9(12),12,Count of PDEs with Pricing Exception Code equal “O”,308,319,ptr
-29,FILLER,320 - 331,X(12),12,SPACES,320,331,ptr
-30,DET-RECORD-TOTAL,332 - 339,9(8),8,Total count of DET records,332,339,ptr
-31,P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,340 - 353,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contractsof Record to this PBP.  This field is the sum of the LICS Amount and CPP Amount.  Value is zero in Reports 40ENH and 40OTC.",340,353,ptr
-32,FILLER,354 - 512,X(159),159,SPACES,354,512,ptr
-1,RECORD-ID,1 - 3,X(3),3,"""CTR""",1,3,ctr
-2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,ctr
-3,CONTRACT-NO,11 - 15,X(5),5,Must match CHD,11,15,ctr
-4,DRUG-COVERAGE-STATUS-CODE,16 - 16,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",16,16,ctr
-5,BENEFICIARY-COUNT,17 - 27,9(11),11,Total count of DET records.,17,27,ctr
-6,FILLER,28 - 36,X(9),9,SPACES,28,36,ctr
-7,RX-COUNT,37 - 47,9(11),11,"Number of Prescriptions net of deleted and/or adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",37,47,ctr
-8,NET-INGRED-COST,48 - 61,S9(12)V99,14,Self-explanatory,48,61,ctr
-9,NET-DISPENS-FEE,62 - 75,S9(12)V99,14,Self-explanatory,62,75,ctr
-10,NET-SALES-TAX,76 - 89,S9(12)V99,14,Self-explanatory,76,89,ctr
-11,NET-GDCB-AMOUNT,90 - 103,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,90,103,ctr
-12,NET-GDCA-AMOUNT,104 - 117,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,104,117,ctr
-13,NET-TOTAL-GROSS-DRUG-COST,118 - 131,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",118,131,ctr
-14,NET-PATIENT-PAY-AMOUNT,132 - 145,S9(12)V99,14,Self-explanatory,132,145,ctr
-15,NET-OTHER-TROOP-AMOUNT,146 - 159,S9(12)V99,14,Net Other True Out-of-Pocket Amount,146,159,ctr
-16,NET-LICS-AMOUNT,160 - 173,S9(12)V99,14,Net Low Income Cost Sharing Amount,160,173,ctr
-17,NET-TrOOP-AMOUNT,174 - 187,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",174,187,ctr
-18,NET-PLRO-AMOUNT,188 - 201,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,188,201,ctr
-19,NET-CPP-AMOUNT,202 - 215,S9(12)V99,14,Net Covered Plan Paid Amount,202,215,ctr
-20,NET-NPP-AMOUNT,216 - 229,S9(12)V99,14,Net Non-covered Plan Paid Amount,216,229,ctr
-21,NUMBER-OF-ORIGINAL-PDES,230 - 241,9(12),12,The count of original PDEs.,230,241,ctr
-22,NUMBER-OF-ADJUSTED-PDES,242 - 253,9(12),12,The count of adjusted PDEs.,242,253,ctr
-23,NUMBER-OF-DELETION-PDES,254 - 265,9(12),12,The count of deleted PDEs.,254,265,ctr
-24,NET-NUMBER-CATASTROPHIC-PDES,266 - 277,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “C”,266,277,ctr
-25,NET-NUMBER-ATTACHMENT-PDES,278 - 289,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “A”,278,289,ctr
-26,NET-NUMBER-NON-CATASTROPHIC-PDES,290 - 301,9(12),12,Count of PDEs with Catastrophic Coverage Code not equal “A” or “C”,290,301,ctr
-27,NET-NUMBER-NON-STANDARD-FORMAT-PDES,302 - 313,9(12),12,Count of PDEs with Non-standard Format Code other than blank,302,313,ctr
-28,NET-NUMBER-OON-PDES,314 - 325,9(12),12,Count of PDEs with Pricing Exception Code equal “O” (out-of-network).,314,325,ctr
-29,FILLER,326 - 337,X(12),12,SPACES,326,337,ctr
-30,DET-RECORD-TOTAL,338 - 345,9(8),8,Total count of DET records,338,345,ctr
-31,P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,346 - 359,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting Contract.  This field is the sum of the LICS Amount and CPP Amount.  Value is zero in Reports 40ENH and 40OTC",346,359,ctr
-32,FILLER,360 - 512,X(153),153,SPACES,360,512,ctr
+FIELD NO.,FIELD NAME,POSITION,PICTURE,LENGTH,FIELD DESCRIPTION / VALUES,START_POSITION,END_POSITION,RECORD,DOCUMENT
+1,RECORD-ID,1 - 3,X(3),3,"""CHD""",1,3,chd,"40COV, 40ENH, 40OTC"
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,chd,"40COV, 40ENH, 40OTC"
+3,CONTRACT-NO,11 - 15,X(5),5,Submitting Contract number,11,15,chd,"40COV, 40ENH, 40OTC"
+4,FILE-ID,16 - 31,X(16),16,"40COVCCYY###, 40ENHCCYY### or 40OTCCCYY###  (Where  40 = Due from Contracts of Record - YTD Report COV / ENH / OTC indicates the drug coverage status being reported on    CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.)",16,31,chd,"40COV, 40ENH, 40OTC"
+5,PROD-TEST-IND,32 - 35,X(4),4,TEST or PROD,32,35,chd,"40COV, 40ENH, 40OTC"
+6,AS-OF-YEAR,36 - 39,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",36,39,chd,"40COV, 40ENH, 40OTC"
+7,AS-OF-MONTH,40 - 41,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",40,41,chd,"40COV, 40ENH, 40OTC"
+8,DDPS-SYSTEM-DATE,42 - 49,X(8),8,‘CCYYMMDD’ = DDPS File creation date.,42,49,chd,"40COV, 40ENH, 40OTC"
+9,DDPS-SYSTEM-TIME,50 - 55,X(6),6,‘HHMMSS’ = DDPS File creation time.,50,55,chd,"40COV, 40ENH, 40OTC"
+10,DDPS-REPORT-ID,56 - 60,X(5),5,"DDPS Report identifier (Either '40COV', '40ENH' or '40OTC').",56,60,chd,"40COV, 40ENH, 40OTC"
+11,FILLER,61 - 512,X(452),452,SPACES,61,512,chd,"40COV, 40ENH, 40OTC"
+1,RECORD-ID,1 - 3,X(3),3,"""PHD""",1,3,phd,"40COV, 40ENH, 40OTC"
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,phd,"40COV, 40ENH, 40OTC"
+3,CONTRACT-NO,11 - 15,X(5),5,Submitting Contract number,11,15,phd,"40COV, 40ENH, 40OTC"
+4,PBP-ID,16 - 18,X(3),3,Submitting PBP ID,16,18,phd,"40COV, 40ENH, 40OTC"
+5,FILE-ID,19 - 34,X(16),16,"40COVCCYY###, 40ENHCCYY### or 40OTCCCYY###  (Where  40 = Due from Contracts of Record - YTD Report COV / ENH / OTC indicates the drug coverage status being reported on    CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.)",19,34,phd,"40COV, 40ENH, 40OTC"
+6,PROD-TEST-IND,35 - 38,X(4),4,TEST or PROD,35,38,phd,"40COV, 40ENH, 40OTC"
+7,AS-OF-YEAR,39 - 42,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",39,42,phd,"40COV, 40ENH, 40OTC"
+8,AS-OF-MONTH,43 - 44,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",43,44,phd,"40COV, 40ENH, 40OTC"
+9,DDPS-SYSTEM-DATE,45 - 52,X(8),8,‘CCYYMMDD’ = DDPS File creation date.,45,52,phd,"40COV, 40ENH, 40OTC"
+10,DDPS-SYSTEM-TIME,53 - 58,X(6),6,‘HHMMSS’ = DDPS File creation time.,53,58,phd,"40COV, 40ENH, 40OTC"
+11,DDPS-REPORT-ID,59 - 63,X(5),5,"DDPS Report identifier (Either '40COV', '40ENH' or '40OTC').",59,63,phd,"40COV, 40ENH, 40OTC"
+12,FILLER,64 - 512,X(449),449,SPACES,64,512,phd,"40COV, 40ENH, 40OTC"
+1,RECORD-ID,1 - 3,X(3),3,DET,1,3,det,"40COV, 40ENH, 40OTC"
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,det,"40COV, 40ENH, 40OTC"
+3,DRUG-COVERAGE-STATUS-CODE,11 - 11,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",11,11,det,"40COV, 40ENH, 40OTC"
+4,CURRENT-CMS-HICN,12 - 31,X(20),20,"Medicare HIC or RRB number.  If the beneficiary has more than one HICN on file, this is current HICN.",12,31,det,"40COV, 40ENH, 40OTC"
+5,LAST-SUBMITTED-HICN,32 - 51,X(20),20,HICN from the most recent accepted PDE in the DDPS database for that plan/beneficiary.,32,51,det,"40COV, 40ENH, 40OTC"
+6,LAST-SUBMITTED-CARDHOLDER-ID,52 - 71,X(20),20,"Plan identification of the enrollee, as reported on the most recent PDE for the benefit year.",52,71,det,"40COV, 40ENH, 40OTC"
+7,EARLIEST-PDE-ATTACHMENT-POINT-DATE,72 - 79,9(8),8,Date of service from the earliest attachment point PDE associated with the PBP - CCYYMMDD,72,79,det,"40COV, 40ENH, 40OTC"
+8,RX-COUNT,80 - 90,9(11),11,"Number of Prescriptions net of deleted and adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",80,90,det,"40COV, 40ENH, 40OTC"
+9,NET-INGRED-COST,91 - 104,S9(12)V99,14,Self-explanatory,91,104,det,"40COV, 40ENH, 40OTC"
+10,NET-DISPENS-FEE,105 - 118,S9(12)V99,14,Self-explanatory,105,118,det,"40COV, 40ENH, 40OTC"
+11,NET-SALES-TAX,119 - 132,S9(12)V99,14,Self-explanatory,119,132,det,"40COV, 40ENH, 40OTC"
+12,NET-GDCB-AMOUNT,133 - 146,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,133,146,det,"40COV, 40ENH, 40OTC"
+13,NET-GDCA-AMOUNT,147 - 160,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,147,160,det,"40COV, 40ENH, 40OTC"
+14,NET-TOTAL-GROSS-DRUG-COST,161 - 174,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",161,174,det,"40COV, 40ENH, 40OTC"
+15,NET-PATIENT-PAY-AMOUNT,175 - 188,S9(12)V99,14,Self-explanatory,175,188,det,"40COV, 40ENH, 40OTC"
+16,NET-OTHER-TROOP-AMOUNT,189 - 202,S9(12)V99,14,Net Other True Out-of-Pocket Amount,189,202,det,"40COV, 40ENH, 40OTC"
+17,NET-LICS-AMOUNT,203 - 216,S9(12)V99,14,Net Low Income Cost Sharing Amount,203,216,det,"40COV, 40ENH, 40OTC"
+18,NET-TrOOP-AMOUNT,217 - 230,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",217,230,det,"40COV, 40ENH, 40OTC"
+19,NET-PLRO-AMOUNT,231 - 244,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,231,244,det,"40COV, 40ENH, 40OTC"
+20,NET-CPP-AMOUNT,245 - 258,S9(12)V99,14,Net Covered Plan Paid Amount,245,258,det,"40COV, 40ENH, 40OTC"
+21,NET-NPP-AMOUNT,259 - 272,S9(12)V99,14,Net Non-covered Plan Paid Amount,259,272,det,"40COV, 40ENH, 40OTC"
+22,NUMBER-OF-ORIGINAL-PDES,273 - 284,9(12),12,Self-explanatory,273,284,det,"40COV, 40ENH, 40OTC"
+23,NUMBER-OF-ADJUSTED-PDES,285 - 296,9(12),12,Self-explanatory,285,296,det,"40COV, 40ENH, 40OTC"
+24,NUMBER-OF-DELETION-PDES,297 - 308,9(12),12,Self-explanatory,297,308,det,"40COV, 40ENH, 40OTC"
+25,NET-NUMBER-OF-CATASTROPHIC-COVERAGE-PDES,309 - 320,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “C”,309,320,det,"40COV, 40ENH, 40OTC"
+26,NET-NUMBER-OF-ATTACHMENT-PDES,321 - 332,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “A”,321,332,det,"40COV, 40ENH, 40OTC"
+27,NET-NUMBER-OF-NON-CATASTROPHIC-PDES,333 - 344,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “blank”,333,344,det,"40COV, 40ENH, 40OTC"
+28,NET-NUMBER-OF-NON-STANDARD-FORMAT-PDES,345 - 356,9(12),12,Count of PDEs with Non-standard Format Code other then blank,345,356,det,"40COV, 40ENH, 40OTC"
+29,NET-NUMBER-OF-OON-PDES,357 - 368,9(12),12,Count of PDEs with pricing-exception-code code equal “O”,357,368,det,"40COV, 40ENH, 40OTC"
+30,P2P-CONTRACT,369 - 373,X(5),5,The contract number of the Plan of Record associated with the P2P reconciliation condition.  (Appears on Covered Drug version of the report only.),369,373,det,"40COV, 40ENH, 40OTC"
+31,P2P-AMOUNT,374 - 387,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting PBP for this beneficiary.  This field is the sum of the LICS Amount and CPP Amount. Value is zero in Reports 40ENH and 40OTC.",374,387,det,"40COV, 40ENH, 40OTC"
+32,FILLER,388 - 512,X(125),125,SPACES,388,512,det,"40COV, 40ENH, 40OTC"
+1,RECORD-ID,1 - 3,X(3),3,"""PTR""",1,3,ptr,"40COV, 40ENH, 40OTC"
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,ptr,"40COV, 40ENH, 40OTC"
+3,CONTRACT-NO,11 - 15,X(5),5,Same as PHD,11,15,ptr,"40COV, 40ENH, 40OTC"
+4,PBP-ID,16 - 18,X(3),3,Same as PHD,16,18,ptr,"40COV, 40ENH, 40OTC"
+5,DRUG-COVERAGE-STATUS-CODE,19 - 19,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",19,19,ptr,"40COV, 40ENH, 40OTC"
+6,BENEFICIARY-COUNT,20 - 30,9(11),11,Total count of DET records.,20,30,ptr,"40COV, 40ENH, 40OTC"
+7,RX-COUNT,31 - 41,9(11),11,"Number of Prescriptions net of deleted and/or adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",31,41,ptr,"40COV, 40ENH, 40OTC"
+8,NET-INGRED-COST,42 - 55,S9(12)V99,14,Self-explanatory,42,55,ptr,"40COV, 40ENH, 40OTC"
+9,NET-DISPENS-FEE,56 - 69,S9(12)V99,14,Self-explanatory,56,69,ptr,"40COV, 40ENH, 40OTC"
+10,NET-SALES-TAX,70 - 83,S9(12)V99,14,Self-explanatory,70,83,ptr,"40COV, 40ENH, 40OTC"
+11,NET-GDCB-AMOUNT,84 - 97,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,84,97,ptr,"40COV, 40ENH, 40OTC"
+12,NET-GDCA-AMOUNT,98 - 111,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,98,111,ptr,"40COV, 40ENH, 40OTC"
+13,NET-TOTAL-GROSS-DRUG-COST,112 - 125,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",112,125,ptr,"40COV, 40ENH, 40OTC"
+14,NET-PATIENT-PAY-AMOUNT,126 - 139,S9(12)V99,14,Self-explanatory,126,139,ptr,"40COV, 40ENH, 40OTC"
+15,NET-OTHER-TROOP-AMOUNT,140 - 153,S9(12)V99,14,Net Other True Out-of-Pocket Amount,140,153,ptr,"40COV, 40ENH, 40OTC"
+16,NET-LICS-AMOUNT,154 - 167,S9(12)V99,14,Net Low Income Cost Sharing Amount,154,167,ptr,"40COV, 40ENH, 40OTC"
+17,NET-TrOOP-AMOUNT,168 - 181,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",168,181,ptr,"40COV, 40ENH, 40OTC"
+18,NET-PLRO-AMOUNT,182 - 195,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,182,195,ptr,"40COV, 40ENH, 40OTC"
+19,NET-CPP-AMOUNT,196 - 209,S9(12)V99,14,Net Covered Plan Paid Amount,196,209,ptr,"40COV, 40ENH, 40OTC"
+20,NET-NPP-AMOUNT,210 - 223,S9(12)V99,14,Net Non-covered Plan Paid Amount,210,223,ptr,"40COV, 40ENH, 40OTC"
+21,NUMBER-OF-ORIGINAL-PDES,224 - 235,9(12),12,The count of original PDEs.,224,235,ptr,"40COV, 40ENH, 40OTC"
+22,NUMBER-OF-ADJUSTED-PDES,236 - 247,9(12),12,The count of adjusted PDEs.,236,247,ptr,"40COV, 40ENH, 40OTC"
+23,NUMBER-OF-DELETION-PDES,248 - 259,9(12),12,The count of deleted PDEs.,248,259,ptr,"40COV, 40ENH, 40OTC"
+24,NET-NUMBER-OF-CATASTROPHIC-COVERAGE-PDES,260 - 271,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “C”.,260,271,ptr,"40COV, 40ENH, 40OTC"
+25,NET-NUMBER-OF-ATTACHMENT-PDES,272 - 283,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “A”,272,283,ptr,"40COV, 40ENH, 40OTC"
+26,NET-NUMBER-OF-NON-CATASTROPHIC-PDES,284 - 295,9(12),12,Count of PDEs with Catastrophic Coverage Code equal to “blank”.,284,295,ptr,"40COV, 40ENH, 40OTC"
+27,NET-NUMBER-OF-NON-STANDARD-FORMAT-PDES,296 - 307,9(12),12,Count of PDEs with Non-standard Format Code other then blank,296,307,ptr,"40COV, 40ENH, 40OTC"
+28,NET-NUMBER-OF-OON-PDES,308 - 319,9(12),12,Count of PDEs with Pricing Exception Code equal “O”,308,319,ptr,"40COV, 40ENH, 40OTC"
+29,FILLER,320 - 331,X(12),12,SPACES,320,331,ptr,"40COV, 40ENH, 40OTC"
+30,DET-RECORD-TOTAL,332 - 339,9(8),8,Total count of DET records,332,339,ptr,"40COV, 40ENH, 40OTC"
+31,P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,340 - 353,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contractsof Record to this PBP.  This field is the sum of the LICS Amount and CPP Amount.  Value is zero in Reports 40ENH and 40OTC.",340,353,ptr,"40COV, 40ENH, 40OTC"
+32,FILLER,354 - 512,X(159),159,SPACES,354,512,ptr,"40COV, 40ENH, 40OTC"
+1,RECORD-ID,1 - 3,X(3),3,"""CTR""",1,3,ctr,"40COV, 40ENH, 40OTC"
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,ctr,"40COV, 40ENH, 40OTC"
+3,CONTRACT-NO,11 - 15,X(5),5,Must match CHD,11,15,ctr,"40COV, 40ENH, 40OTC"
+4,DRUG-COVERAGE-STATUS-CODE,16 - 16,X(1),1,"Code to identify whether drug is covered (C), supplemental (E) or over-the-counter (O).",16,16,ctr,"40COV, 40ENH, 40OTC"
+5,BENEFICIARY-COUNT,17 - 27,9(11),11,Total count of DET records.,17,27,ctr,"40COV, 40ENH, 40OTC"
+6,FILLER,28 - 36,X(9),9,SPACES,28,36,ctr,"40COV, 40ENH, 40OTC"
+7,RX-COUNT,37 - 47,9(11),11,"Number of Prescriptions net of deleted and/or adjusted PDEs, as well as partial fill transactions.  Partial and Complete PDEs are each counted as 1.",37,47,ctr,"40COV, 40ENH, 40OTC"
+8,NET-INGRED-COST,48 - 61,S9(12)V99,14,Self-explanatory,48,61,ctr,"40COV, 40ENH, 40OTC"
+9,NET-DISPENS-FEE,62 - 75,S9(12)V99,14,Self-explanatory,62,75,ctr,"40COV, 40ENH, 40OTC"
+10,NET-SALES-TAX,76 - 89,S9(12)V99,14,Self-explanatory,76,89,ctr,"40COV, 40ENH, 40OTC"
+11,NET-GDCB-AMOUNT,90 - 103,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,90,103,ctr,"40COV, 40ENH, 40OTC"
+12,NET-GDCA-AMOUNT,104 - 117,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,104,117,ctr,"40COV, 40ENH, 40OTC"
+13,NET-TOTAL-GROSS-DRUG-COST,118 - 131,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",118,131,ctr,"40COV, 40ENH, 40OTC"
+14,NET-PATIENT-PAY-AMOUNT,132 - 145,S9(12)V99,14,Self-explanatory,132,145,ctr,"40COV, 40ENH, 40OTC"
+15,NET-OTHER-TROOP-AMOUNT,146 - 159,S9(12)V99,14,Net Other True Out-of-Pocket Amount,146,159,ctr,"40COV, 40ENH, 40OTC"
+16,NET-LICS-AMOUNT,160 - 173,S9(12)V99,14,Net Low Income Cost Sharing Amount,160,173,ctr,"40COV, 40ENH, 40OTC"
+17,NET-TrOOP-AMOUNT,174 - 187,S9(12)V99,14,"Sum of Net Patient Pay Amount, Net Other Troop Amount and Net LICS Amount",174,187,ctr,"40COV, 40ENH, 40OTC"
+18,NET-PLRO-AMOUNT,188 - 201,S9(12)V99,14,Net Patient Liability Reduction Due to Other (non-TrOOP) Payers,188,201,ctr,"40COV, 40ENH, 40OTC"
+19,NET-CPP-AMOUNT,202 - 215,S9(12)V99,14,Net Covered Plan Paid Amount,202,215,ctr,"40COV, 40ENH, 40OTC"
+20,NET-NPP-AMOUNT,216 - 229,S9(12)V99,14,Net Non-covered Plan Paid Amount,216,229,ctr,"40COV, 40ENH, 40OTC"
+21,NUMBER-OF-ORIGINAL-PDES,230 - 241,9(12),12,The count of original PDEs.,230,241,ctr,"40COV, 40ENH, 40OTC"
+22,NUMBER-OF-ADJUSTED-PDES,242 - 253,9(12),12,The count of adjusted PDEs.,242,253,ctr,"40COV, 40ENH, 40OTC"
+23,NUMBER-OF-DELETION-PDES,254 - 265,9(12),12,The count of deleted PDEs.,254,265,ctr,"40COV, 40ENH, 40OTC"
+24,NET-NUMBER-CATASTROPHIC-PDES,266 - 277,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “C”,266,277,ctr,"40COV, 40ENH, 40OTC"
+25,NET-NUMBER-ATTACHMENT-PDES,278 - 289,9(12),12,Count of PDEs with Catastrophic Coverage Code equal “A”,278,289,ctr,"40COV, 40ENH, 40OTC"
+26,NET-NUMBER-NON-CATASTROPHIC-PDES,290 - 301,9(12),12,Count of PDEs with Catastrophic Coverage Code not equal “A” or “C”,290,301,ctr,"40COV, 40ENH, 40OTC"
+27,NET-NUMBER-NON-STANDARD-FORMAT-PDES,302 - 313,9(12),12,Count of PDEs with Non-standard Format Code other than blank,302,313,ctr,"40COV, 40ENH, 40OTC"
+28,NET-NUMBER-OON-PDES,314 - 325,9(12),12,Count of PDEs with Pricing Exception Code equal “O” (out-of-network).,314,325,ctr,"40COV, 40ENH, 40OTC"
+29,FILLER,326 - 337,X(12),12,SPACES,326,337,ctr,"40COV, 40ENH, 40OTC"
+30,DET-RECORD-TOTAL,338 - 345,9(8),8,Total count of DET records,338,345,ctr,"40COV, 40ENH, 40OTC"
+31,P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,346 - 359,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting Contract.  This field is the sum of the LICS Amount and CPP Amount.  Value is zero in Reports 40ENH and 40OTC",346,359,ctr,"40COV, 40ENH, 40OTC"
+32,FILLER,360 - 512,X(153),153,SPACES,360,512,ctr,"40COV, 40ENH, 40OTC"
+1,RECORD-ID,1 - 3,X(3),3,"""CHD""",1,3,chd,41COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,chd,41COV
+3,CONTRACT-NO,11 - 15,X(5),5,Submitting Contract number,11,15,chd,41COV
+4,FILE-ID,16 - 31,X(16),16,41COVCCYY###  (Where  41 = Due from Contracts of Record - Current Month Report COV indicates the drug coverage status being reported on (covered drugs only)   CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.),16,31,chd,41COV
+5,PROD-TEST-IND,32 - 35,X(4),4,TEST or PROD,32,35,chd,41COV
+6,AS-OF-YEAR,36 - 39,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",36,39,chd,41COV
+7,AS-OF-MONTH,40 - 41,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",40,41,chd,41COV
+8,DDPS-SYSTEM-DATE,42 - 49,X(8),8,‘CCYYMMDD’ = DDPS File creation date.,42,49,chd,41COV
+9,DDPS-SYSTEM-TIME,50 - 55,X(6),6,‘HHMMSS’ = DDPS File creation time.,50,55,chd,41COV
+10,DDPS-REPORT-ID,56 - 60,X(5),5,DDPS Report identifier ('41COV'),56,60,chd,41COV
+11,FILLER,61 - 512,X(452),452,SPACES,61,512,chd,41COV
+1,RECORD-ID,1 - 3,X(3),3,"""RHD""",1,3,rhd,41COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,rhd,41COV
+3,CONTRACT-NO,11 - 15,X(5),5,Contract number of the Plan of Record,11,15,rhd,41COV
+4,FILLER,16 - 18,X(3),3,SPACES,16,18,rhd,41COV
+5,FILE-ID,19 - 34,X(16),16,41COVCCYY###,19,34,rhd,41COV
+6,PROD-TEST-IND,35 - 38,X(4),4, (Where ,35,38,rhd,41COV
+7,AS-OF-YEAR,39 - 42,X(4),4,41 = Due from Contracts of Record -,39,42,rhd,41COV
+8,AS-OF-MONTH,43 - 44,X(2),2,Current Month Report,43,44,rhd,41COV
+9,DDPS-SYSTEM-DATE,45 - 52,X(8),8,COV indicates the drug coverage status,45,52,rhd,41COV
+10,DDPS-SYSTEM-TIME,53 - 58,X(6),6,being reported on (covered drugs only),53,58,rhd,41COV
+11,DDPS-REPORT-ID,59 - 63,X(5),5,CCYY indicates the benefit year,59,63,rhd,41COV
+12,FILLER,64 - 512,X(449),449,### indicates sequential versions of this,64,512,rhd,41COV
+1,RECORD-ID,1 - 3,X(3),3,DET,1,3,det,41COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,det,41COV
+3,DRUG-COVERAGE-STATUS-CODE,11 - 11,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report.,11,11,det,41COV
+4,CURRENT-CMS-HICN,12 - 31,X(20),20,"Medicare HIC or RRB number.  If the beneficiary has more than one HICN on file, this is current HICN.",12,31,det,41COV
+5,LAST-SUBMITTED-HICN,32 - 51,X(20),20,HICN from the most recent accepted PDE in the DDPS database for that plan/beneficiary.,32,51,det,41COV
+6,LAST-SUBMITTED-CARDHOLDER-ID,52 - 71,X(20),20,"Plan identification of the enrollee, as reported on the most recent PDE for the benefit year",52,71,det,41COV
+7,CURRENT-MONTH-GDCB-AMOUNT,72 - 85,S9(12)V99,14,Monthly change in Gross Drug Cost Below the Catastrophic Coverage Threshold,72,85,det,41COV
+8,CURRENT-MONTH-GDCA-AMOUNT,86 - 99,S9(12)V99,14,Monthly change in Gross Drug Cost Above the Catastrophic Coverage Threshold,86,99,det,41COV
+9,CURRENT-MONTH-TOTAL-GROSS-DRUG-COST,100 - 113,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",100,113,det,41COV
+10,CURRENT-MONTH-LICS-AMOUNT,114 - 127,S9(12)V99,14,Low Income Cost Sharing Amount,114,127,det,41COV
+11,CURRENT-MONTH-CPP-AMOUNT,128 - 141,S9(12)V99,14,Covered Plan Paid Amount,128,141,det,41COV
+12,CURRENT-MONTH-P2P-AMOUNT,142 - 155,S9(12)V99,14,"The amount related to the P2P reconciliation condition.  This amount represents the amount ""due-from"" this Contract of Record to this Submitting Contract for this beneficiary.   This field is the sum of the LICS Amount and CPP Amount.",142,155,det,41COV
+13,FILLER,156 - 512,X(357),357,SPACES,156,512,det,41COV
+1,RECORD-ID,1 - 3,X(3),3,"""RTR""",1,3,rtr,41COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,rtr,41COV
+3,CONTRACT-NO,11 - 15,X(5),5,Same as RHD,11,15,rtr,41COV
+4,FILLER,16 - 18,X(3),3,SPACES,16,18,rtr,41COV
+5,DRUG-COVERAGE-STATUS-CODE,19 - 19,X(1),1,Note: Only PDEs with a value of 'C',19,19,rtr,41COV
+6,BENEFICIARY-COUNT,20 - 30,9(11),11,(Covered Drug) will be included on this,20,30,rtr,41COV
+7,CURRENT-MONTH-GDCB-AMOUNT,31 - 44,S9(12)V99,14,report.,31,44,rtr,41COV
+8,CURRENT-MONTH-GDCA-AMOUNT,45 - 58,S9(12)V99,14,Total count of DET records.,45,58,rtr,41COV
+9,CURRENT-MONTH-TOTAL-GROSS-DRUG-COST,59 - 72,S9(12)V99,14,Monthly change in Gross Drug Cost Below,59,72,rtr,41COV
+10,CURRENT-MONTH-LICS-AMOUNT,73 - 86,S9(12)V99,14,the Catastrophic Coverage Threshold,73,86,rtr,41COV
+11,CURRENT-MONTH-CPP-AMOUNT,87 - 100,S9(12)V99,14,Monthly change in Covered Plan Paid,87,100,rtr,41COV
+12,DET-RECORD-TOTAL,101 - 108,9(8),8,Amount,101,108,rtr,41COV
+13,CURRENT-MONTH-P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,109 - 122,S9(12)V99,14,Total count of DET records,109,122,rtr,41COV
+14,FILLER,123 - 512,X(390),390,The amount related to the Plan-to-Plan,123,512,rtr,41COV
+1,RECORD-ID,1 - 3,X(3),3,"""CTR""",1,3,ctr,41COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,ctr,41COV
+3,CONTRACT-NO,11 - 15,X(5),5,Must match CHD,11,15,ctr,41COV
+4,DRUG-COVERAGE-STATUS-CODE,16 - 16,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report.,16,16,ctr,41COV
+5,BENEFICIARY-COUNT,17 - 27,9(11),11,Total count of DET records.,17,27,ctr,41COV
+6,FILLER,28 - 36,X(9),9,SPACES,28,36,ctr,41COV
+7,CURRENT-MONTH-GDCB-AMOUNT,37 - 50,S9(12)V99,14,Monthly change in Gross Drug Cost Below the Catastrophic Coverage Threshold,37,50,ctr,41COV
+8,CURRENT-MONTH-GDCA-AMOUNT,51 - 64,S9(12)V99,14,Monthly change in Gross Drug Cost Above the Catastrophic Coverage Threshold,51,64,ctr,41COV
+9,CURRENT-MONTH-TOTAL-GROSS-DRUG-COST,65 - 78,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",65,78,ctr,41COV
+10,CURRENT-MONTH-LICS-AMOUNT,79 - 92,S9(12)V99,14,Monthly change in Low Income Cost Sharing Amount,79,92,ctr,41COV
+11,CURRENT-MONTH-CPP-AMOUNT,93 - 106,S9(12)V99,14,Monthly change in Covered Plan Paid Amount,93,106,ctr,41COV
+12,DET-RECORD-TOTAL,107 - 114,9(8),8,Total count of DET records,107,114,ctr,41COV
+13,CURRENT-MONTH-P2P-AMOUNT-DUE-FROM-ALL-PLANS-OF-RECORD,115 - 128,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-from"" all Contracts of Record to this Submitting Contract.   This field is the sum of the LICS Amount and CPP Amount.",115,128,ctr,41COV
+14,FILLER,129 - 512,X(384),384,SPACES,129,512,ctr,41COV
+1,RECORD-ID,1 - 3,X(3),3,"""CHD""",1,3,chd,42COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,chd,42COV
+3,CONTRACT-NO,11 - 15,X(5),5,Contract number of the Plan of Record,11,15,chd,42COV
+4,FILE-ID,16 - 31,X(16),16,42COVCCYY###,16,31,chd,42COV
+5,PROD-TEST-CERT IND,32 - 35,X(4),4, (Where ,32,35,chd,42COV
+6,AS-OF-YEAR,36 - 39,X(4),4,42 = Due To Submitting Contracts - YTD,36,39,chd,42COV
+7,AS-OF-MONTH,40 - 41,X(2),2,report,40,41,chd,42COV
+8,DDPS-SYSTEM-DATE,42 - 49,X(8),8,COV indicates the drug coverage status being,42,49,chd,42COV
+9,DDPS-SYSTEM-TIME,50 - 55,X(6),6,reported on (covered drugs only),50,55,chd,42COV
+10,DDPS-REPORT-ID,56 - 60,X(5),5,CCYY indicates the benefit year,56,60,chd,42COV
+11,FILLER,61 - 512,X(452),1,### indicates sequential versions of this file. ,61,512,chd,42COV
+1,RECORD-ID,1 - 3,X(3),3,"""PHD""",1,3,phd,42COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,phd,42COV
+3,CONTRACT-NO,11 - 15,X(5),5,Contract Number of the Plan of Record,11,15,phd,42COV
+4,PBP-ID,16 - 18,X(3),3,Plan of Record's PBP ID,16,18,phd,42COV
+5,FILE-ID,19 - 34,X(16),16,42COVCCYY###  Where  42 = Due To Submitting Contracts - YTD report COV indicates the drug coverage status being reported on (covered drugs only)CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.),19,34,phd,42COV
+6,PROD-TEST IND,35 - 38,X(4),4,TEST or PROD,35,38,phd,42COV
+7,AS-OF-YEAR,39 - 42,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY.",39,42,phd,42COV
+8,AS-OF-MONTH,43 - 44,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12",43,44,phd,42COV
+9,DDPS-SYSTEM-DATE,45 - 52,X(8),8,‘CCYYMMDD’ = DDPS File creation date,45,52,phd,42COV
+10,DDPS-SYSTEM-TIME,53 - 58,X(6),6,‘HHMMSS’ = DDPS File creation time,53,58,phd,42COV
+11,DDPS-REPORT-ID,59 - 63,X(5),5,DDPS Report identifier ('42COV'),59,63,phd,42COV
+12,FILLER,64 - 512,X(449),449,SPACES,64,512,phd,42COV
+1,RECORD-ID,1 - 3,X(3),3,DET,1,3,det,42COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,det,42COV
+3,DRUG-COVERAGE-STATUS-CODE,11 - 11,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report,11,11,det,42COV
+4,CURRENT-CMS-HICN,12 - 31,X(20),20,"Medicare HIC or RRB number.  If the beneficiary has more than one HICN on file, this is current HICN",12,31,det,42COV
+5,LAST-SUBMITTED-HICN,32 - 51,X(20),20,HICN from the most recent accepted PDE in the DDPS database for that plan/beneficiary,32,51,det,42COV
+6,NET-GDCB-AMOUNT,52 - 65,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,52,65,det,42COV
+7,NET-GDCA-AMOUNT,66 - 79,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,66,79,det,42COV
+8,NET-TOTAL-GROSS-DRUG-COST,80 - 93,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",80,93,det,42COV
+9,NET-LICS-AMOUNT,94 - 107,S9(12)V99,14,Net Low Income Cost Sharing Amount,94,107,det,42COV
+10,NET-CPP-AMOUNT,108 - 121,S9(12)V99,14,Net Covered Plan Paid Amount,108,121,det,42COV
+11,P2P-CONTRACT,122 - 126,X(5),5,The contract number of the Submitting Contract associated with the P2P reconciliation condition,122,126,det,42COV
+12,P2P-AMOUNT,127 - 140,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-to"" all Submitting Contracts from this PBP of record for this beneficiary.   This field is the sum of the LICS Amount and CPP Amount",127,140,det,42COV
+13,FILLER,141 - 512,X(372),372,SPACES,141,512,det,42COV
+1,RECORD-ID,1 - 3,X(3),3,"""PTR""",1,3,ptr,42COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,ptr,42COV
+3,CONTRACT-NO,11 - 15,X(5),5,Same as PHD,11,15,ptr,42COV
+4,PBP-ID,16 - 18,X(3),3,Same as PHD,16,18,ptr,42COV
+5,DRUG-COVERAGE-STATUS-CODE,19 - 19,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report,19,19,ptr,42COV
+6,BENEFICIARY-COUNT,20 - 30,9(11),11,Total count of DET records,20,30,ptr,42COV
+7,NET-GDCB-AMOUNT,31 - 44,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,31,44,ptr,42COV
+8,NET-GDCA-AMOUNT,45 - 58,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,45,58,ptr,42COV
+9,NET-TOTAL-GROSS-DRUG-COST,59 - 72,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",59,72,ptr,42COV
+10,NET-LICS-AMOUNT,73 - 86,S9(12)V99,14,Net Low Income Cost Sharing Amount,73,86,ptr,42COV
+11,NET-CPP-AMOUNT,87 - 100,S9(12)V99,14,Net Covered Plan Paid Amount,87,100,ptr,42COV
+12,DET-RECORD-TOTAL,101 - 108,9(8),8,Total count of DET records,101,108,ptr,42COV
+13,P2P-AMOUNT-DUE-TO-ALL-SUBMITTING CONTRACTS,109 - 122,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-to"" all Submitting Contracts from this PBP of Record.   This field is the sum of the LICS Amount and CPP Amount",109,122,ptr,42COV
+14,FILLER,123 - 512,X(390),390,SPACES,123,512,ptr,42COV
+1,RECORD-ID,1 - 3,X(3),3,"""CTR""",1,3,ctr,42COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,ctr,42COV
+3,CONTRACT-NO,11 - 15,X(5),5,Must match CHD,11,15,ctr,42COV
+4,DRUG-COVERAGE-STATUS-CODE,16 - 16,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report,16,16,ctr,42COV
+5,BENEFICIARY-COUNT,17 - 27,9(11),11,Total count of DET records,17,27,ctr,42COV
+6,FILLER,28 - 36,X(9),9,SPACES,28,36,ctr,42COV
+7,NET-GDCB-AMOUNT,37 - 50,S9(12)V99,14,Net Gross Drug Cost Below the Catastrophic Coverage Threshold,37,50,ctr,42COV
+8,NET-GDCA-AMOUNT,51 - 64,S9(12)V99,14,Net Gross Drug Cost Above the Catastrophic Coverage Threshold,51,64,ctr,42COV
+9,NET-TOTAL-GROSS-DRUG-COST,65 - 78,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",65,78,ctr,42COV
+10,NET-LICS-AMOUNT,79 – 92,S9(12)V99,14,Net Low Income Cost Sharing Amount,79,92,ctr,42COV
+11,NET-CPP-AMOUNT,93 – 106,S9(12)V99,14,Net Covered Plan Paid Amount,93,106,ctr,42COV
+12,DET-RECORD-TOTAL,107 – 114,9(8),8,Total count of DET records,107,114,ctr,42COV
+13,P2P-AMOUNT-DUE-TO-ALL-SUBMITTING-CONTRACTS,115 – 128,S9(12)V99,14,The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount “due-to” all Submitting Contracts from this Contract of Record.  This field is the sum of the LICS Amount and CPP Amount,115,128,ctr,42COV
+14,FILLER,129 – 512,X(384),384,SPACES,129,512,ctr,42COV
+1,RECORD-ID,1 - 3,X(3),3,"""CHD""",1,3,chd,43COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,chd,43COV
+3,CONTRACT-NO,11 - 15,X(5),5,Contract number of the Plan of Record,11,15,chd,43COV
+4,FILE-ID,16 - 31,X(16),16,43COVCCYY###  (Where  43 = Due To Submitting Contracts - Current Month report COV indicates the drug coverage status being reported on (covered drugs only) CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.),16,31,chd,43COV
+5,PROD-TEST-IND,32 - 35,X(4),4,TEST or PROD,32,35,chd,43COV
+6,AS-OF-YEAR,36 - 39,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY",36,39,chd,43COV
+7,AS-OF-MONTH,40 - 41,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",40,41,chd,43COV
+8,DDPS-SYSTEM-DATE,42 - 49,X(8),8,‘CCYYMMDD’ = DDPS File creation date,42,49,chd,43COV
+9,DDPS-SYSTEM-TIME,50 - 55,X(6),6,‘HHMMSS’ = DDPS File creation time,50,55,chd,43COV
+10,DDPS-REPORT-ID,56 - 60,X(5),5,DDPS Report identifier ('43COV'),56,60,chd,43COV
+11,FILLER,61 - 512,X(452),452,SPACES,61,512,chd,43COV
+1,RECORD-ID,1 - 3,X(3),3,"""CHD""",1,3,shd?,43COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,shd?,43COV
+3,CONTRACT-NO,11 - 15,X(5),5,Contract number of the Plan of Record,11,15,shd?,43COV
+4,FILE-ID,16 - 31,X(16),16,43COVCCYY###  (Where  43 = Due To Submitting Contracts - Current Month report COV indicates the drug coverage status being reported on (covered drugs only) CCYY indicates the benefit year ### indicates sequential versions of this file.  The 4 right-most positions are populated with spaces.),16,31,shd?,43COV
+5,PROD-TEST-IND,32 - 35,X(4),4,TEST or PROD,32,35,shd?,43COV
+6,AS-OF-YEAR,36 - 39,X(4),4,"Identifies ""data reported through"" year.  Format is CCYY",36,39,shd?,43COV
+7,AS-OF-MONTH,40 - 41,X(2),2,"Identifies ""data reported through"" month.  Valid values are 01 through 12.",40,41,shd?,43COV
+8,DDPS-SYSTEM-DATE,42 - 49,X(8),8,‘CCYYMMDD’ = DDPS File creation date,42,49,shd?,43COV
+9,DDPS-SYSTEM-TIME,50 - 55,X(6),6,‘HHMMSS’ = DDPS File creation time.,50,55,shd?,43COV
+10,DDPS-REPORT-ID,56 - 60,X(5),5,DDPS Report identifier ('43COV'),56,60,shd?,43COV
+11,FILLER,61 - 512,X(452),452,SPACES,61,512,shd?,43COV
+1,RECORD-ID,1 - 3,X(3),3,DET,1,3,det,43COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,det,43COV
+3,DRUG-COVERAGE-STATUS-CODE,11 - 11,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report,11,11,det,43COV
+4,CURRENT-CMS-HICN,12 - 31,X(20),20,"Medicare HIC or RRB number.  If the beneficiary has more than one HICN on file, this is current HICN",12,31,det,43COV
+5,LAST-SUBMITTED-HICN,32 - 51,X(20),20,HICN from the most recent accepted PDE in the DDPS database for that plan/beneficiary,32,51,det,43COV
+6,CURRENT-MONTH-GDCB-AMOUNT,52 - 65,S9(12)V99,14,Monthly change in Gross Drug Cost Below the Catastrophic Coverage Threshold,52,65,det,43COV
+7,CURRENT-MONTH-GDCA-AMOUNT,66 - 79,S9(12)V99,14,Monthly change in Gross Drug Cost Above the Catastrophic Coverage Threshold,66,79,det,43COV
+8,CURRENT-MONTH-TOTAL-GROSS-DRUG-COST,80 - 93,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax.",80,93,det,43COV
+9,CURRENT-MONTH-LICS-AMOUNT,94 - 107,S9(12)V99,14,Monthly change in Low Income Cost Sharing Amount,94,107,det,43COV
+10,CURRENT-MONTH-CPP-AMOUNT,108 - 121,S9(12)V99,14,Monthly change in Covered Plan Paid Amount,108,121,det,43COV
+11,P2P-CONTRACT,122 - 126,X(5),5,The contract number of the Submitting Contract associated with the P2P reconciliation condition,122,126,det,43COV
+12,CURRENT-MONTH-P2P-AMOUNT,127 - 140,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-to"" this Submitting Contract from this Contract of Record for this beneficiary.  This field is the sum of the LICS Amount and CPP Amount",127,140,det,43COV
+13,FILLER,141 - 512,X(372),372,SPACES,141,512,det,43COV
+1,RECORD-ID,1 - 3,X(3),3,"""STR""",1,3,str,43COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Starts with 0000001,4,10,str,43COV
+3,CONTRACT-NO,11 - 15,X(5),5,Same as SHD,11,15,str,43COV
+4,PBP-ID,16 - 18,X(3),3,Same as SHD,16,18,str,43COV
+5,DRUG-COVERAGE-STATUS-CODE,19 - 19,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report,19,19,str,43COV
+6,BENEFICIARY-COUNT,20 - 30,9(11),11,Total count of DET records,20,30,str,43COV
+7,CURRENT-MONTH-GDCB-AMOUNT,31 - 44,S9(12)V99,14,Monthly change in Gross Drug Cost Below the Catastrophic Coverage Threshold,31,44,str,43COV
+8,CURRENT-MONTH-GDCA-AMOUNT,45 - 58,S9(12)V99,14,Monthly change in Gross Drug Cost Above the Catastrophic Coverage Threshold,45,58,str,43COV
+9,CURRENT-MONTH-TOTAL-GROSS-DRUG-COST,59 - 72,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",59,72,str,43COV
+10,CURRENT-MONTH-LICS-AMOUNT,73 - 86,S9(12)V99,14,Monthly change in Low Income Cost Sharing Amount,73,86,str,43COV
+11,CURRENT-MONTH-CPP-AMOUNT,87 - 100,S9(12)V99,14,Monthly change in Covered Plan Paid Amount,87,100,str,43COV
+12,DET-RECORD-TOTAL,101 - 108,9(8),8,Total count of DET records,101,108,str,43COV
+13,CURRENT-MONTH-P2P-AMOUNT-DUE-TO-ALL-SUBMITTING CONTRACTS,109 - 122,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-to"" this Contract of Record. This field is the sum of the LICS Amount and CPP Amount",109,122,str,43COV
+14,FILLER,123 - 512,X(390),390,SPACES,123,512,str,43COV
+1,RECORD-ID,1 - 3,X(3),3,"""CTR""",1,3,ctr,43COV
+2,SEQUENCE-NO,4 - 10,9(7),7,Must start with 0000001,4,10,ctr,43COV
+3,CONTRACT-NO,11 - 15,X(5),5,Must match CHD,11,15,ctr,43COV
+4,DRUG-COVERAGE-STATUS-CODE,16 - 16,X(1),1,Note: Only PDEs with a value of 'C' (Covered Drug) will be included on this report,16,16,ctr,43COV
+5,BENEFICIARY-COUNT,17 - 27,9(11),11,Total count of DET records,17,27,ctr,43COV
+6,FILLER,28 - 36,X(9),9,SPACES,28,36,ctr,43COV
+7,CURRENT-MONTH-GDCB-AMOUNT,37 - 50,S9(12)V99,14,Monthly change in Gross Drug Cost Below the Catastrophic Coverage Threshold,37,50,ctr,43COV
+8,CURRENT-MONTH-GDCA-AMOUNT,51 - 64,S9(12)V99,14,Monthly change in Gross Drug Cost Above the Catastrophic Coverage Threshold,51,64,ctr,43COV
+9,CURRENT-MONTH-TOTAL-GROSS-DRUG-COST,65 - 78,S9(12)V99,14,"Sum of Net Ingred Cost, Net Dispens Fee and Net Sales Tax",65,78,ctr,43COV
+10,CURRENT-MONTH-LICS-AMOUNT,79 – 92,S9(12)V99,14,Monthly change in Low Income Cost Sharing Amount,79,92,ctr,43COV
+11,CURRENT-MONTH-CPP-AMOUNT,93 – 106,S9(12)V99,14,Monthly change in Covered Plan Paid Amount,93,106,ctr,43COV
+12,DET-RECORD-TOTAL,107 – 114,9(8),8,Total count of DET records,107,114,ctr,43COV
+13,CURRENT-MONTH-P2P-AMOUNT-DUE-TO-ALL-SUBMITTING CONTRACTS,115 – 128,S9(12)V99,14,"The amount related to the Plan-to-Plan reconciliation condition.  This amount represents the amount ""due-to"" this Contract of Record. This field is the sum of the LICS Amount and CPP Amount",115,128,ctr,43COV
+14,FILLER,129 – 512,X(384),384,SPACES,129,512,ctr,43COV
